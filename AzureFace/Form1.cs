@@ -25,7 +25,7 @@ namespace AzureFace
     public partial class Form1 : Form
     {
         static HttpClient client = new HttpClient();
-        static string groupId = "demo1228";
+        static string groupId = "Your Group ID";
         public Form1()
         {
             InitializeComponent();
@@ -40,8 +40,6 @@ namespace AzureFace
         // show picture
         private void button1_Click(object sender, EventArgs e)
         {
-            //Image myPic = Image.FromFile(@"C:/Users/user/Desktop/A.jpg");
-
             clearBox();
 
             string str = Interaction.InputBox("Please input picture url", "url", "", -1, -1);
@@ -97,7 +95,7 @@ namespace AzureFace
             string age = Interaction.InputBox("Please input age", "age", "", -1, -1);
             string createPicURL = Interaction.InputBox("Please input picture url", "url", "", -1, -1);
 
-            using (StreamWriter file = new StreamWriter(@"C:\Users\user\Desktop\Training.txt",true))
+            using (StreamWriter file = new StreamWriter(@".\Training.txt",true))
             {
                 file.WriteLine(createPicURL);
             }
@@ -124,7 +122,7 @@ namespace AzureFace
         {
             clearBox();
 
-            string[] lines = System.IO.File.ReadAllLines(@"C:\Users\user\Desktop\Training.txt");
+            string[] lines = System.IO.File.ReadAllLines(@".\Training.txt");
 
             foreach(string line in lines)
             {             
@@ -173,7 +171,7 @@ namespace AzureFace
             var queryString = HttpUtility.ParseQueryString(string.Empty);
 
             // Request headers
-            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "794e0bffdd72421284ef9f2944cdea71");
+            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "Input Your Key");
 
             // Request parameters
             var uri = "https://eastus.api.cognitive.microsoft.com/face/v1.0/persongroups/" + groupId + "/persons/" + personId + queryString;
@@ -209,7 +207,7 @@ namespace AzureFace
             var queryString = HttpUtility.ParseQueryString(string.Empty);
 
             // Request headers
-            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "794e0bffdd72421284ef9f2944cdea71");
+            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "Input Your Key");
 
             queryString["returnFaceId"] = "true";
             queryString["returnFaceLandmarks"] = "false";
@@ -260,7 +258,7 @@ namespace AzureFace
             var queryString = HttpUtility.ParseQueryString(string.Empty);
 
             // Request headers
-            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "794e0bffdd72421284ef9f2944cdea71");
+            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "Input Your Key");
 
             // Request parameters
             var uri = "https://eastus.api.cognitive.microsoft.com/face/v1.0/identify?" + queryString;
@@ -301,7 +299,7 @@ namespace AzureFace
             var queryString = HttpUtility.ParseQueryString(string.Empty);
 
             // Request headers
-            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "794e0bffdd72421284ef9f2944cdea71");
+            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "Input Your Key");
 
             // Request parameters
             queryString["userData"] = "{string}";
@@ -333,7 +331,7 @@ namespace AzureFace
             var queryString = HttpUtility.ParseQueryString(string.Empty);
 
             // Request headers
-            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "794e0bffdd72421284ef9f2944cdea71");
+            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "Input Your Key");
 
             var uri = "https://eastus.api.cognitive.microsoft.com/face/v1.0/persongroups/"+ groupId + "/train" + queryString;
 
@@ -359,7 +357,7 @@ namespace AzureFace
             var queryString = HttpUtility.ParseQueryString(string.Empty);
 
             // Request headers
-            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "794e0bffdd72421284ef9f2944cdea71");
+            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "Input Your Key");
 
             var uri = "https://eastus.api.cognitive.microsoft.com/face/v1.0/persongroups/" + groupId + "/training?" + queryString;
 
@@ -386,7 +384,7 @@ namespace AzureFace
             var queryString = HttpUtility.ParseQueryString(string.Empty);
 
             // Request headers
-            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "794e0bffdd72421284ef9f2944cdea71");
+            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "Input Your Key");
 
             string personGroupId = "a";
             var uri = "https://eastus.api.cognitive.microsoft.com/face/v1.0/persongroups/" + personGroupId;
@@ -418,7 +416,7 @@ namespace AzureFace
             var queryString = HttpUtility.ParseQueryString(string.Empty);
 
             // Request headers
-            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "794e0bffdd72421284ef9f2944cdea71");
+            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "Input Your Key");
             var uri = "https://eastus.api.cognitive.microsoft.com/face/v1.0/persongroups/" + groupId + "/persons?" + queryString;
 
             HttpResponseMessage response;
